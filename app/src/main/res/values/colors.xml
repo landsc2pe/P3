@@ -3,7 +3,13 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="blackColor">#000000</color>
     <color name="whiteColor">#ffffff</color>
     <color name="blueColor">#131f8c</color>
     <color name="greenColor">#0c5008</color>
+    <color name="purpleColor">#30054e</color>
+
+
+    //Fragment Colors
+    <color name="designFragmentColor">#330553</color>
 </resources>

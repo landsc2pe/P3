@@ -20,25 +20,12 @@ public class MainActivity extends AppCompatActivity {
 
     private void init() {
         makeFragment();
-
     }
-
     private void makeFragment() {
         mainFragment = new MainFragment();
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.add(R.id.main_activity, mainFragment);
+        fragmentTransaction.add(R.id.main_layout, mainFragment, "MainFragment");
         fragmentTransaction.commit();
+
     }
-
-//    private void makeRecyclerView() {
-//
-//        RecyclerView mainView = new RecyclerView(this);
-//        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-//
-//        mainView.hasFixedSize();
-//        mainView.setLayoutManager(layoutManager);
-//            }
-
-
-
 }

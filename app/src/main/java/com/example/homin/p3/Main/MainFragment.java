@@ -3,16 +3,19 @@ package com.example.homin.p3.Main;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
-import com.example.homin.p3.Main.Util.Event.ClickEvent;
-import com.example.homin.p3.Main.Util.Event.ClickEventId;
-import com.example.homin.p3.Main.Util.EventBus;
+import com.example.homin.p3.Main.Base.BaseAdapter;
+import com.example.homin.p3.Main.Base.BaseFragment;
+import com.example.homin.p3.Main.DesignSupportLIbrary.DesignFragment;
+import com.example.homin.p3.Main.Base.Util.Event.ClickEvent.ClickEvent;
+import com.example.homin.p3.Main.Base.Util.Event.ClickEvent.ClickEventId;
+import com.example.homin.p3.Main.Base.Util.Event.EventBus;
 import com.example.homin.p3.R;
 import com.squareup.otto.Subscribe;
 
@@ -22,7 +25,7 @@ import java.util.List;
 /**
  * Created by HOMIN on 2016-07-07.
  */
-public class MainFragment extends Fragment {
+public class MainFragment extends BaseFragment {
 
     private List<String> itemList;
     private RecyclerView mainFragment;
@@ -51,13 +54,6 @@ public class MainFragment extends Fragment {
     }
 
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-
-        //EventBus Unregister
-        EventBus.getInstance().getBus().unregister(this);
-    }
 
 
 
@@ -70,10 +66,14 @@ public class MainFragment extends Fragment {
 
     private void makeItemList() {
         itemList = new ArrayList<>();
-        itemList.add("Test1");
-        itemList.add("Test2");
+        itemList.add("Design Support Library");
+        itemList.add("Expandable List View");
         itemList.add("Test3");
         itemList.add("Test4");
+        itemList.add("Test5");
+        itemList.add("Test6");
+        itemList.add("Test7");
+        itemList.add("Test8");
 
 
     }
@@ -89,14 +89,16 @@ public class MainFragment extends Fragment {
     }
 
     private void setClickListener() {
-        mainAdapter.setOnItemClickListener(new MainAdapter.OnItemClickListener() {
+        mainAdapter.setOnItemClickListener(new BaseAdapter.OnItemClickListener() {
             @Override
             public void onClick(int position) {
                 switch (position) {
                     case 0:
                         EventBus.getInstance().getBus().post(new ClickEvent(ClickEventId.ITEM_LIST_ONE));
+                        break;
                     case 1:
                         EventBus.getInstance().getBus().post(new ClickEvent(ClickEventId.ITEM_LIST_TWO));
+                        break;
 
                 }
             }
@@ -107,12 +109,18 @@ public class MainFragment extends Fragment {
     @Subscribe
     public void itemTouchList(ClickEvent event) {
         if (event.getId() == ClickEventId.ITEM_LIST_ONE) {
-            Toast.makeText(getContext(), "Complete !!!", Toast.LENGTH_SHORT).show();
+            Fragment designFragment = DesignFragment.newInstance();
+            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+            fragmentTransaction.add(R.id.main_layout, designFragment, "DesignFragment");
+            fragmentTransaction.addToBackStack("DesignFragment");
+            fragmentTransaction.commit();
+
+
         }
         if (event.getId() == ClickEventId.ITEM_LIST_TWO) {
 
-        }
 
+        }
 
 
     }

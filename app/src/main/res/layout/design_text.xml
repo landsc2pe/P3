@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.TextInputLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/username_text_input_layout"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="0.6"
+    android:background="@android:color/holo_orange_light"
+    app:counterEnabled="true"
+    app:counterMaxLength="10"
+    app:counterOverflowTextAppearance="@style/TextAppearance.AppCompat.Body1"
+    app:counterTextAppearance="@style/TextAppearance.AppCompat.Button">
+
+    <EditText
+        android:id="@+id/etUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:ems="10"
+        android:hint="Username" />
+
+</android.support.design.widget.TextInputLayout>

@@ -1,4 +1,4 @@
-package com.example.homin.p3.Main.Util;
+package com.example.homin.p3.Main.Base.Util.Event;
 
 import com.squareup.otto.Bus;
 
