@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import com.example.homin.p3.Main.Base.BaseAdapter;
 import com.example.homin.p3.Main.Base.Util.LogTag;
 import com.example.homin.p3.Main.Base.ViewHolder;
+import com.example.homin.p3.R;
 
 import java.util.List;
 
