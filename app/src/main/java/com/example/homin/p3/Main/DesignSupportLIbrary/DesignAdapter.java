@@ -3,6 +3,7 @@ package com.example.homin.p3.Main.DesignSupportLIbrary;
 import android.util.Log;
 import android.view.View;
 
+import android.view.ViewGroup;
 import com.example.homin.p3.Main.Base.BaseAdapter;
 import com.example.homin.p3.Main.Base.Util.LogTag;
 import com.example.homin.p3.Main.Base.ViewHolder;
@@ -19,6 +20,14 @@ public class DesignAdapter extends BaseAdapter {
 
     public DesignAdapter(List<String> itemList) {
         item = itemList;
+    }
+
+    @Override
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        ViewHolder holder = super.onCreateViewHolder(parent, viewType);
+        holder.itemView.setTextColor(
+                parent.getContext().getResources().getColor(R.color.greenColor));
+        return holder;
     }
 
     @Override

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
+import com.example.homin.p3.Main.concurrent.TestRaceCondition;
 import com.example.homin.p3.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -16,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.main_activity);
 
         init();
+        test();
     }
 
     private void init() {
@@ -27,5 +29,9 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.add(R.id.main_layout, mainFragment, "MainFragment");
         fragmentTransaction.commit();
 
+    }
+
+    void test() {
+        TestRaceCondition.test();
     }
 }

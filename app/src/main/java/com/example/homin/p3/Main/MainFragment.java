@@ -94,10 +94,12 @@ public class MainFragment extends BaseFragment {
             public void onClick(int position) {
                 switch (position) {
                     case 0:
-                        EventBus.getInstance().getBus().post(new ClickEvent(ClickEventId.ITEM_LIST_ONE));
+                        itemTouchList(new ClickEvent(ClickEventId.ITEM_LIST_ONE));
+//                        EventBus.getInstance().getBus().post(new ClickEvent(ClickEventId.ITEM_LIST_ONE));
                         break;
                     case 1:
-                        EventBus.getInstance().getBus().post(new ClickEvent(ClickEventId.ITEM_LIST_TWO));
+                        itemTouchList(new ClickEvent(ClickEventId.ITEM_LIST_TWO));
+//                        EventBus.getInstance().getBus().post(new ClickEvent(ClickEventId.ITEM_LIST_TWO));
                         break;
 
                 }
