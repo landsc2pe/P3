@@ -2,8 +2,8 @@ package com.example.homin.p3.Main;
 
 import android.view.View;
 
-import com.example.homin.p3.Main.Base.BaseAdapter;
-import com.example.homin.p3.Main.Base.ViewHolder;
+import com.example.homin.p3.Main.base.BaseAdapter;
+import com.example.homin.p3.Main.base.ViewHolder;
 
 import java.util.List;
 

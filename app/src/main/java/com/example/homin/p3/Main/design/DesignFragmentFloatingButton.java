@@ -1,4 +1,4 @@
-package com.example.homin.p3.Main.DesignSupportLIbrary;
+package com.example.homin.p3.Main.design;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

@@ -1,4 +1,4 @@
-package com.example.homin.p3.Main.Base;
+package com.example.homin.p3.Main.base;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;

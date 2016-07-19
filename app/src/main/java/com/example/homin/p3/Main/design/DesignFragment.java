@@ -1,9 +1,10 @@
-package com.example.homin.p3.Main.DesignSupportLIbrary;
+package com.example.homin.p3.Main.design;
 
 import android.annotation.TargetApi;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -12,14 +13,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.homin.p3.Main.Base.BaseAdapter;
-import com.example.homin.p3.Main.Base.BaseFragment;
-import com.example.homin.p3.Main.Base.Util.Event.ClickEvent.ClickEvent;
-import com.example.homin.p3.Main.Base.Util.Event.ClickEvent.ClickEventId;
-import com.example.homin.p3.Main.Base.Util.Event.EventBus;
-import com.example.homin.p3.Main.Base.Util.LogTag;
+import com.example.homin.p3.Main.base.BaseAdapter;
+import com.example.homin.p3.Main.base.BaseFragment;
+import com.example.homin.p3.Main.base.Util.Event.ClickEvent.ClickEvent;
+import com.example.homin.p3.Main.base.Util.Event.ClickEvent.ClickEventId;
+import com.example.homin.p3.Main.base.Util.LogTag;
 import com.example.homin.p3.R;
-import com.squareup.otto.Subscribe;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +31,7 @@ public class DesignFragment extends BaseFragment {
     private List<String> itemList;
     private DesignAdapter designAdapter;
     private RecyclerView designFragment;
+    private View view;
 
     public static DesignFragment newInstance() {
         Bundle args = new Bundle();
@@ -45,11 +45,11 @@ public class DesignFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.design_fragment, container, false);
+        view = inflater.inflate(R.layout.design_fragment, container, false);
         designFragment = (RecyclerView) view.findViewById(R.id.design_list);
 
-        //EventBus Register
-        EventBus.getInstance().getBus().register(this);
+//        EventBus Register
+//        EventBus.getInstance().getBus().register(this);
 
         return view;
 
@@ -79,7 +79,6 @@ public class DesignFragment extends BaseFragment {
         itemList.add("Test5");
 
 
-
     }
 
     @TargetApi(Build.VERSION_CODES.M)
@@ -99,10 +98,20 @@ public class DesignFragment extends BaseFragment {
             public void onClick(int position) {
                 switch (position) {
                     case 0:
-                        EventBus.getInstance().getBus().post(new ClickEvent(ClickEventId.DESIGN_LIST_ONE));
+                        itemTouchList(new ClickEvent(ClickEventId.DESIGN_LIST_ONE));
                         break;
                     case 1:
-                        EventBus.getInstance().getBus().post(new ClickEvent(ClickEventId.DESIGN_LIST_TWO));
+                        itemTouchList(new ClickEvent(ClickEventId.DESIGN_LIST_TWO));
+                        break;
+                    case 2:
+                        itemTouchList(new ClickEvent(ClickEventId.DESIGN_LIST_THREE));
+                        break;
+                    case 3:
+                        itemTouchList(new ClickEvent(ClickEventId.DESIGN_LIST_FOUR));
+                        break;
+
+                    default:
+                        Snackbar.make(getView(), "It`s not ready yet...", Snackbar.LENGTH_SHORT).show();
                         break;
 
                 }
@@ -111,10 +120,9 @@ public class DesignFragment extends BaseFragment {
 
     }
 
-    @Subscribe
     public void itemTouchList(ClickEvent event) {
         if (event.getId() == ClickEventId.DESIGN_LIST_ONE) {
-            if(LogTag.DEBUG) Log.d(TAG, "Clicked 1 ");
+            if (LogTag.DEBUG) Log.d(TAG, "Clicked 1 ");
             DesignFragmentCollapsingToolBar designFragmentCollapsingToolBar = DesignFragmentCollapsingToolBar.newInstance();
             FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
             fragmentTransaction.add(R.id.main_layout, designFragmentCollapsingToolBar, "FloatingFragment");
@@ -123,12 +131,31 @@ public class DesignFragment extends BaseFragment {
         }
 
         if (event.getId() == ClickEventId.DESIGN_LIST_TWO) {
-            if(LogTag.DEBUG) Log.d(TAG, "Clicked 2 ");
+            if (LogTag.DEBUG) Log.d(TAG, "Clicked 2 ");
             DesignFragmentFloatingButton designFragmentFloatingButton = DesignFragmentFloatingButton.newInstance();
             FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
             fragmentTransaction.add(R.id.main_layout, designFragmentFloatingButton, "FloatingFragment");
             fragmentTransaction.addToBackStack("FloatingFragment");
             fragmentTransaction.commit();
+        }
+
+        if (event.getId() == ClickEventId.DESIGN_LIST_THREE) {
+            if (LogTag.DEBUG) Log.d(TAG, "Clicked 3 ");
+            DesignFragmentNavigation designFragmentNavigation = DesignFragmentNavigation.newInstance();
+            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+            fragmentTransaction.add(R.id.main_layout, designFragmentNavigation, "NavigationFragment");
+            fragmentTransaction.addToBackStack("NavigationFragment");
+            fragmentTransaction.commit();
+        }
+
+        if (event.getId() == ClickEventId.DESIGN_LIST_FOUR) {
+            if (LogTag.DEBUG) Log.d(TAG, "Clicked 4 ");
+            DesignFragmentTabLayout designFragmentTabLayout = DesignFragmentTabLayout.newInstance();
+            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+            fragmentTransaction.add(R.id.main_layout, designFragmentTabLayout, "TabLayoutFragment");
+            fragmentTransaction.addToBackStack("TabLayoutFragment");
+            fragmentTransaction.commit();
+
         }
 
     }

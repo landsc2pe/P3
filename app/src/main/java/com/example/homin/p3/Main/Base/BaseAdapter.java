@@ -1,4 +1,4 @@
-package com.example.homin.p3.Main.Base;
+package com.example.homin.p3.Main.base;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -23,6 +23,7 @@ abstract public class BaseAdapter extends RecyclerView.Adapter<ViewHolder> {
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.main_item, parent, false);
+
         return new ViewHolder(view);
     }
 }

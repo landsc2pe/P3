@@ -1,4 +1,4 @@
-package com.example.homin.p3.Main.DesignSupportLIbrary;
+package com.example.homin.p3.Main.design;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,7 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.homin.p3.Main.Base.Util.LogTag;
+import com.example.homin.p3.Main.base.Util.LogTag;
 import com.example.homin.p3.R;
 
 /**
@@ -22,9 +22,9 @@ public class DesignFragmentCollapsingToolBar extends Fragment {
     private CollapsingToolbarLayout collapsingToolbar;
 
     public static DesignFragmentCollapsingToolBar newInstance() {
-        Bundle arg = new Bundle();
+        Bundle args = new Bundle();
         DesignFragmentCollapsingToolBar designFragmentCollapsingToolBar = new DesignFragmentCollapsingToolBar();
-        designFragmentCollapsingToolBar.setArguments(arg);
+        designFragmentCollapsingToolBar.setArguments(args);
 
         return designFragmentCollapsingToolBar;
     }

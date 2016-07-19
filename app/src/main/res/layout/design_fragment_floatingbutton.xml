@@ -23,7 +23,7 @@
             android:clickable="true"
             android:gravity="center"
             android:orientation="horizontal"
-            android:text="Collapsing Tool Bar"
+            android:text="Floating Button"
             android:textAlignment="center"
             android:textColor="#460452"
             android:textIsSelectable="true"

@@ -2,6 +2,7 @@ package com.example.homin.p3.Main;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,12 +11,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.homin.p3.Main.Base.BaseAdapter;
-import com.example.homin.p3.Main.Base.BaseFragment;
-import com.example.homin.p3.Main.DesignSupportLIbrary.DesignFragment;
-import com.example.homin.p3.Main.Base.Util.Event.ClickEvent.ClickEvent;
-import com.example.homin.p3.Main.Base.Util.Event.ClickEvent.ClickEventId;
-import com.example.homin.p3.Main.Base.Util.Event.EventBus;
+import com.example.homin.p3.Main.base.BaseAdapter;
+import com.example.homin.p3.Main.base.BaseFragment;
+import com.example.homin.p3.Main.design.DesignFragment;
+import com.example.homin.p3.Main.base.Util.Event.ClickEvent.ClickEvent;
+import com.example.homin.p3.Main.base.Util.Event.ClickEvent.ClickEventId;
+import com.example.homin.p3.Main.base.Util.Event.EventBus;
 import com.example.homin.p3.R;
 import com.squareup.otto.Subscribe;
 
@@ -100,6 +101,9 @@ public class MainFragment extends BaseFragment {
                     case 1:
                         itemTouchList(new ClickEvent(ClickEventId.ITEM_LIST_TWO));
 //                        EventBus.getInstance().getBus().post(new ClickEvent(ClickEventId.ITEM_LIST_TWO));
+                        break;
+                    default:
+                        Snackbar.make(getView(), "It`s not ready yet...", Snackbar.LENGTH_SHORT).show();
                         break;
 
                 }

@@ -1,12 +1,12 @@
-package com.example.homin.p3.Main.DesignSupportLIbrary;
+package com.example.homin.p3.Main.design;
 
 import android.util.Log;
 import android.view.View;
-
 import android.view.ViewGroup;
-import com.example.homin.p3.Main.Base.BaseAdapter;
-import com.example.homin.p3.Main.Base.Util.LogTag;
-import com.example.homin.p3.Main.Base.ViewHolder;
+
+import com.example.homin.p3.Main.base.BaseAdapter;
+import com.example.homin.p3.Main.base.Util.LogTag;
+import com.example.homin.p3.Main.base.ViewHolder;
 import com.example.homin.p3.R;
 
 import java.util.List;
@@ -25,11 +25,19 @@ public class DesignAdapter extends BaseAdapter {
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        ViewHolder holder = super.onCreateViewHolder(parent, viewType);
-        holder.itemView.setTextColor(
-                parent.getContext().getResources().getColor(R.color.greenColor));
+        ViewHolder holder = super.onCreateViewHolder(parent,viewType);
+        holder.itemView.setTextColor(parent.getContext().getResources().getColor(R.color.colorAccent));
         return holder;
     }
+
+
+    //    @Override
+//    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+//        ViewHolder holder = super.onCreateViewHolder(parent, viewType);
+//        holder.itemView.setTextColor(
+//                parent.getContext().getResources().getColor(R.color.greenColor));
+//        return holder;
+//    }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
